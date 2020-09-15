@@ -37,6 +37,10 @@ class Contact extends Component {
       } // end onJoinUsClick
 
     render(){
+        let joinUsMessage = '';
+        if( this.state.firstName !== '' && this.state.lastName !== '' && this.state.bestImpression !== ''){
+              joinUsMessage = <p>{this.state.firstName} {this.state.lastName}'s best impression is {this.state.bestImpression}</p>
+          }
         return (
             <div>
                 <h2>Contact</h2>
@@ -45,7 +49,7 @@ class Contact extends Component {
                     <input type='text' placeholder='Last Name' onChange={this.onLastNameChange}/>
                     <input type='text' placeholder='Best Impression' onChange={this.onBestImpressionChange}/>
                     <button onClick={this.onJoinUsClick}>Join Us</button>
-                    <p>{this.state.firstName} {this.state.lastName}'s best impression is {this.state.bestImpression}</p>
+                    <p>{joinUsMessage}</p>
                 </div>
                 <p>Phone: 1-800-WE-REACT</p>
                 <p>Email: info@ReactActors.com</p>
